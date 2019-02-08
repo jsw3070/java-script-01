@@ -1,6 +1,3 @@
-// var : ES5
-// let : ES6
-
 var Man = {
     wieght: 75,
     height: 175,
@@ -89,7 +86,7 @@ var Equalizer = (function () {
     function Equalizer(parent, bgColor, size) {
         var obj = this;
         var html = '<ul>'
-        for (var i = 0; i < 5; i++) html += '<li></li>';
+        for (var i = 1; i <= 5; i++) html += '<li></li>';
         html += '</ul>';
         this.parent = $(parent);
         this.bgColor = bgColor;
@@ -101,8 +98,8 @@ var Equalizer = (function () {
         console.log(this.li[3]);
         console.log(this.li.eq(3));
         console.log(this.li.eq(3)[0]);
-        console.log(this.li.eq(0)[0]);
-        this.li.eq(0)[0].style.backgroundColor = this.bgColor;
+
+        this.li[0].style.backgroundColor = this.bgColor;
         this.ul.css({
             "width": this.size + "px",
             "height": this.size + "px",
@@ -120,49 +117,10 @@ var Equalizer = (function () {
             var li = $(this);
             var interval = setInterval(function () {
                 li.css({
-                    "height": (Math.floor(Math.random() * 81) + 20) + "%"
+                    "height": (Math.floor(Math.random()*81)+20)+"%"
                 });
             }, 100);
         });
     }
     return Equalizer;
 }());
-
-var eq = new Equalizer($(".eq"), "#f90", 200);
-var eq2 = new Equalizer($(".eq2"), "#f90", 500);
-
-//  아래 것 자바스크립트, 클래스 이큐에 어팬드 시켜라.
-// $(".eq").append();
-
-
-
-/* <ul id = "music" class = "clear" >
-    <li > </li> 
-    <li > </li>
-    <li > </li> 
-    <li > </li> 
-    <li > </li> 
-    </ul> */
-
-
-/* 자바스크립트 객체
-log(Man.name);
-Man.run();
-Man.eat(); */
-
-// window.alert()
-
-/* var window = {
-    alert: function (str) {
-        log(str);
-    }
-}; */
-
-
-// 공부하자!
-/* 
-Math.floor(90.2) //90 - 소수점 이하 버림
-Math.ceil(90.2) //91 - 소수점 이하 올림
-Math.round(90.2) //90 - 소수점 이하 반올림
-Math.random() //0부터 1보다 작은 난수 발생 - 0.278.... 
-*/
